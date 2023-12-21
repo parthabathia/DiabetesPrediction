@@ -1,25 +1,45 @@
 # Diabetes Prediction
 
-This code analyzes a diabetes dataset to build a model for predicting whether a person has diabetes based on various medical features. Here's a breakdown of the steps:
+This Python code is a machine learning script that uses a Support Vector Machine (SVM) classifier to predict the outcome of diabetes based on a given dataset. Here's a breakdown of the code:
 
-    Data Import and Exploration:
-        Libraries: Imports necessary libraries like Pandas, NumPy, Scikit-learn for data manipulation, scaling, and machine learning.
-        Dataset Loading: Reads the diabetes dataset (diabetes.csv) using Pandas.
-        Data Preview: Prints the first few rows of the dataset to get a glimpse of the data.
+1. **Import Libraries:**
+   - `numpy` and `pandas` for data manipulation.
+   - `StandardScaler` from `sklearn.preprocessing` for feature scaling.
+   - `train_test_split` from `sklearn.model_selection` for splitting the dataset into training and testing sets.
+   - `accuracy_score` from `sklearn.metrics` to evaluate the accuracy of the model.
+   - `svm` from `sklearn` for Support Vector Machine classifier.
 
-    Data Preprocessing:
-        Feature Selection: Creates separate matrices for features (X) and target variable (Y - "Outcome").
-        Data Scaling: Standardizes the features using StandardScaler for better model performance.
-        Class Distribution: Prints the number of instances for each class ("Outcome") to understand the imbalance (if any).
+2. **Load and Explore Data:**
+   - The code reads a dataset named 'diabetes.csv' using Pandas.
+   - The first five rows of the dataset are displayed using `head()`.
 
-    Model Training and Evaluation:
-        Train-Test Split: Splits the data into training (80%) and testing (20%) sets to avoid overfitting the model.
-        Model Training: Trains a Linear Support Vector Machine (SVM) classifier on the training data.
-        Accuracy Evaluation: Calculates and prints the accuracy of the model on both training and testing data.
+3. **Data Preprocessing:**
+   - The features (X) are separated from the target variable (Y).
+   - The features are scaled using `StandardScaler` to standardize them.
 
-    Predictions on New Data:
-        Input Data: Defines a list of new data points with medical features for six individuals.
-        Prediction: Uses the trained model to predict the "Outcome" (diabetes) for each new data point.
-        Results: Prints the predicted class and the count of each predicted class for the new data.
+4. **Train-Test Split:**
+   - The dataset is split into training and testing sets using `train_test_split`.
+   - The split is stratified based on the target variable 'Outcome'.
 
-Overall, this code demonstrates the process of building and evaluating a machine learning model for diabetes prediction using a Support Vector Machine. By analyzing a diabetes dataset, the model can learn to identify patterns in medical features and predict the likelihood of diabetes for new patients.
+5. **SVM Model Training:**
+   - A linear Support Vector Machine (SVM) classifier is created.
+   - The classifier is trained on the training data.
+
+6. **Model Evaluation - Training Set:**
+   - The model's predictions are calculated for the training set.
+   - The accuracy of the model on the training set is computed using `accuracy_score`.
+
+7. **Model Evaluation - Testing Set:**
+   - The model's predictions are calculated for the testing set.
+   - The accuracy of the model on the testing set is computed using `accuracy_score`.
+
+8. **Make Predictions on New Data:**
+   - Six sets of input data are provided for predicting diabetes outcomes.
+   - The input data is converted to a NumPy array.
+   - The trained classifier is used to predict the outcomes for the new input data.
+
+9. **Print Predictions:**
+   - The predicted outcomes for the new data are printed.
+   - The unique values and their counts in the predictions are displayed.
+
+This script essentially loads a diabetes dataset, preprocesses it, trains a linear SVM classifier, evaluates its accuracy on both training and testing sets, and makes predictions on new data. The SVM model's performance is assessed using accuracy metrics.
